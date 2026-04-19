@@ -1,0 +1,47 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>FAQ Accordion</title>
+<link rel="stylesheet" href="../../../colors_and_type.css">
+<style>
+  body { margin:0; padding:40px 24px; background: var(--white); font-family: var(--font-sans); }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  .item { border-bottom: 1px solid var(--border); }
+  .item summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 4px; cursor: pointer; font-size: 17px; font-weight: 500; color: var(--text-primary); }
+  .item summary::-webkit-details-marker { display: none; }
+  .item svg { flex-shrink: 0; stroke: var(--text-primary); transition: transform .2s ease; }
+  .item[open] svg { transform: rotate(180deg); }
+  .item .body { padding: 0 4px 20px; font-size: 15px; color: var(--text-secondary); line-height: 1.6; max-width: 760px; }
+</style>
+</head><body>
+<div class="wrap">
+
+  <details class="item">
+    <summary>Terminplanung auch außerhalb der Öffnungszeiten
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div class="body">Der KI-Telefonassistent nimmt Anrufe rund um die Uhr entgegen und bucht Termine direkt in Ihren Kalender.</div>
+  </details>
+
+  <details class="item" open>
+    <summary>Der KI-Telefonassistent lässt sich an jede Praxis anpassen
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div class="body">Bei unserem KI Telefonassistenten für Arztpraxen ist die eigene Konfiguration des Verhaltens und der Stimme der KI möglich. The fonio AI phone assistant can be customized to meet the specific needs of a medical practice, enabling it to provide the best possible patient care over the phone.</div>
+  </details>
+
+  <details class="item">
+    <summary>Telefonservice in über 35 Sprachen
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div class="body">Mehrsprachige Gespräche, automatisch erkannt — ohne zusätzliche Konfiguration.</div>
+  </details>
+
+  <details class="item">
+    <summary>100% DSGVO-konform
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div class="body">Alle Daten werden in der EU verarbeitet und gespeichert. Kein Training auf Ihren Anrufen.</div>
+  </details>
+
+</div>
+</body></html>

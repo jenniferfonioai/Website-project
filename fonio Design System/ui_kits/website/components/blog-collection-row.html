@@ -1,0 +1,50 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Blog Collection Row</title>
+<link rel="stylesheet" href="../../../colors_and_type.css">
+<style>
+  body { margin:0; padding:40px 24px; background: var(--white); font-family: var(--font-sans); }
+  .wrap { max-width: 1200px; margin: 0 auto; }
+  .head { text-align: center; margin-bottom: 36px; }
+  .head h2 { font-size: 40px; font-weight: 500; letter-spacing: -0.02em; margin: 0 0 8px; }
+  .head a { color: var(--text-primary); text-decoration: none; font-size: 14px; font-weight: 400; }
+  .head a:hover { color: var(--fonio-blau); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 32px; min-height: 220px; display: flex; flex-direction: column; }
+  .logo { height: 38px; display: flex; align-items: center; margin-bottom: 24px; font-weight: 500; color: var(--text-primary); gap: 8px; font-size: 16px; letter-spacing: .05em; }
+  .logo .mark { width: 28px; height: 28px; border-radius: 50%; background: var(--bg-secondary); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-secondary); }
+  .logo .hex { width: 30px; height: 30px; background: var(--bg-secondary); clip-path: polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); display:inline-flex; align-items:center; justify-content:center; font-size: 9px; color: var(--text-secondary); font-weight: 500; }
+  .logo .vw { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--text-primary); display: inline-flex; align-items: center; justify-content: center; font-weight: 500; font-size: 13px; }
+  .quote { font-size: 16px; color: var(--text-primary); line-height: 1.5; flex: 1; margin: 0 0 20px; }
+  .more { font-size: 16px; color: var(--text-primary); text-decoration: none; font-weight: 500; }
+  .more:hover { color: var(--fonio-blau); }
+</style>
+</head><body>
+<div class="wrap">
+  <div class="head">
+    <h2>This is how others use fonio.</h2>
+    <a href="#">All customer stories ↗</a>
+  </div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="logo"><span class="mark">✦</span> DIGITAL APES</div>
+      <p class="quote">For us, fonio is the perfect technical foundation for significantly reducing the workload on businesses.</p>
+      <a href="#" class="more">Read more ›</a>
+    </div>
+
+    <div class="card">
+      <div class="logo"><span class="hex">FH</span></div>
+      <p class="quote">Artificial intelligence doesn't replace the heart—it gives us time to show it.</p>
+      <a href="#" class="more">Read more ›</a>
+    </div>
+
+    <div class="card">
+      <div class="logo"><span class="vw">VW</span> Nutzfahrzeuge</div>
+      <p class="quote">More reachability for Volkswagen Gebrauchtfahrzeughandels &amp; Service GmbH</p>
+      <a href="#" class="more">Read more ›</a>
+    </div>
+
+  </div>
+</div>
+</body></html>

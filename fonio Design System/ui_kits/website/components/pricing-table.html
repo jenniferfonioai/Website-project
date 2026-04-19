@@ -1,0 +1,171 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Pricing Table</title>
+<link rel="stylesheet" href="../../../colors_and_type.css">
+<style>
+  body { margin:0; padding:40px 24px; background: var(--white); font-family: var(--font-sans); }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+
+  .tbl { width: 100%; border-collapse: collapse; }
+  .tbl th, .tbl td {
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--text-primary);
+    vertical-align: middle;
+  }
+  .tbl thead th {
+    border-bottom: 1px solid transparent;
+    padding-top: 0;
+    padding-bottom: 24px;
+  }
+  .tbl .label {
+    text-align: left;
+    color: var(--text-primary);
+    font-weight: 400;
+    width: 40%;
+  }
+  .tbl .label .info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px; height: 14px;
+    border-radius: 9999px;
+    background: var(--border);
+    color: var(--text-muted);
+    font-size: 9px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* Plan header cells */
+  .plan-name { font-size: 18px; font-weight: 500; color: var(--text-primary); }
+  .plan-price { font-size: 13px; color: var(--text-secondary); margin: 4px 0 14px; }
+  .plan-cta { min-width: 140px; }
+
+  /* Section grouping */
+  .section-title {
+    background: var(--white);
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    padding: 24px 16px 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Row dividers */
+  .tbl tbody tr.data {
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Grouped table frames */
+  .group {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0 8px 8px;
+    margin-bottom: 16px;
+  }
+  .group .tbl tbody tr.data:last-child {
+    border-bottom: none;
+  }
+
+  /* Muted cells */
+  .muted { color: var(--text-muted); }
+
+  /* Check / cross icons */
+  .ok svg { stroke: var(--fonio-blau); }
+  .no svg { stroke: var(--text-muted); }
+
+  /* Header row uses no frame */
+  .header-table thead th { padding-bottom: 0; }
+  .header-table { margin-bottom: 8px; }
+</style>
+</head><body>
+<div class="wrap">
+
+  <!-- Plan header row -->
+  <table class="tbl header-table">
+    <thead>
+      <tr>
+        <th class="label"></th>
+        <th>
+          <div class="plan-name">Solo</div>
+          <div class="plan-price">€99 / month</div>
+          <button class="btn btn-secondary plan-cta">Start Now</button>
+        </th>
+        <th>
+          <div class="plan-name">Team</div>
+          <div class="plan-price">€299 / month</div>
+          <button class="btn btn-secondary plan-cta">Start Now</button>
+        </th>
+        <th>
+          <div class="plan-name">Scale</div>
+          <div class="plan-price">From €499 / month</div>
+          <button class="btn btn-secondary plan-cta">Create plan</button>
+        </th>
+      </tr>
+    </thead>
+  </table>
+
+  <!-- Group 1 -->
+  <div class="group">
+    <table class="tbl">
+      <tbody>
+        <tr class="data">
+          <td class="label">Additional minute packages <span class="info">i</span></td>
+          <td>€15 for 100 minutes</td>
+          <td>€12 for 100 minutes</td>
+          <td>Custom</td>
+        </tr>
+        <tr class="data">
+          <td class="label">Concurrent calls</td>
+          <td>1</td><td>3</td><td>3+</td>
+        </tr>
+        <tr class="data">
+          <td class="label">Users (Seats)</td>
+          <td>1</td><td>unlimited</td><td>unlimited</td>
+        </tr>
+        <tr class="data">
+          <td class="label">Phone numbers included <span class="info">i</span></td>
+          <td>1</td><td>3</td><td>3+</td>
+        </tr>
+        <tr class="data">
+          <td class="label">Price / extra phone number</td>
+          <td>Annually</td><td>€5</td><td>up to €2 / no.</td>
+        </tr>
+        <tr class="data">
+          <td class="label">Outbound Calling <span class="info">i</span></td>
+          <td class="no"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+          <td>at carrier cost</td>
+          <td>at carrier cost</td>
+        </tr>
+        <tr class="data">
+          <td class="label">SIP trunk integration</td>
+          <td class="no"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></td>
+          <td class="ok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></td>
+          <td class="ok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Group 2: Assistants -->
+  <div class="group">
+    <table class="tbl">
+      <tbody>
+        <tr><td colspan="4" class="section-title" style="border-top:none; padding-top: 16px;">Assistants</td></tr>
+        <tr class="data">
+          <td class="label">Voices</td>
+          <td>20+</td><td>20+</td><td>20+</td>
+        </tr>
+        <tr class="data">
+          <td class="label">Languages</td>
+          <td>25+</td><td>25+</td><td>25+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</body></html>

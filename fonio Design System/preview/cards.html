@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Cards</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin:0; padding:24px; background:#F7F8FC; }
+  .row { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+  h5 { font-size:18px; font-weight:500; margin:0 0 8px 0; }
+  p { font-size:16px; color:var(--text-secondary); line-height:1.5; }
+  .tag { display:inline-block; font-size:11px; color:var(--fonio-blau); margin-bottom:8px; font-weight:500; letter-spacing:.02em; text-transform:uppercase; }
+</style>
+</head><body>
+  <div class="row">
+    <div class="card">
+      <div class="tag">Bordered</div>
+      <h5>Projekt: Relaunch</h5>
+      <p>Bordered card with --border and --radius-md. Used in grids and side-by-side layouts.</p>
+    </div>
+    <div class="card-elevated">
+      <div class="tag">Elevated</div>
+      <h5>Projekt: Branding</h5>
+      <p>Elevated card with --shadow-md. Used for floating or featured surfaces.</p>
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Logo</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin:0; padding:20px; background:#fff; font-family: var(--font-sans); }
+  .row { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+  .frame { border:1px solid var(--border); border-radius:12px; padding:32px 26px; display:flex; align-items:center; justify-content:center; min-height:140px; position:relative; }
+  .frame.soft { background: var(--bg-secondary); }
+  img { max-width: 260px; width: 100%; height:auto; display:block; }
+  .tag { position:absolute; left:12px; top:12px; font-family: ui-monospace, Menlo, monospace; font-size:10px; color:var(--text-muted); }
+  .note { margin-top:14px; font-size:12px; color:var(--text-secondary); line-height:1.5; }
+  .note b { color: var(--text-primary); font-weight:500; }
+  .meta { margin-top: 6px; font-size: 11px; color: var(--text-muted); font-family: ui-monospace, Menlo, monospace; }
+</style>
+</head><body>
+  <div class="row">
+    <div class="frame"><span class="tag">On white</span><img src="../assets/logo.png" alt="fonio.ai 3.0"></div>
+    <div class="frame soft"><span class="tag">On bg-secondary</span><img src="../assets/logo.png" alt="fonio.ai 3.0"></div>
+  </div>
+  <p class="note"><b>fonio.ai 3.0</b> — current wordmark. Black→fonio blau gradient with the version pill in fonio blau. Always used in full color; no solid-black or inverted variants. Place on white or <code>--bg-secondary</code>; avoid dark or saturated backgrounds.</p>
+  <div class="meta">assets/logo.png · 1735×340</div>
+</body></html>

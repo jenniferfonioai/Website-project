@@ -1,0 +1,79 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Brand Imagery</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin:0; padding:18px; background:#fff; font-family: var(--font-sans); }
+  .grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px; }
+  .frame { border-radius:15px; overflow:hidden; position:relative; aspect-ratio: 4/3; background:#F7F8FC; border:1px solid var(--border); }
+  .frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .tag { position:absolute; left:12px; top:12px; font-family: ui-monospace, Menlo, monospace; font-size:11px; color:var(--text-primary); background: rgba(255,255,255,.92); padding:4px 8px; border-radius:6px; }
+  .role { position:absolute; left:12px; bottom:12px; right:12px; font-size:11px; color:var(--text-secondary); background: rgba(255,255,255,.92); padding:6px 8px; border-radius:6px; line-height:1.35; }
+
+  /* Sphere demo — hero product visual, right side */
+  .sphere-demo { background: #fff; }
+  .sphere-demo .mini-hero { position:absolute; inset:0; display:grid; grid-template-columns: 1fr 1fr; align-items:center; padding: 16px 14px; }
+  .sphere-demo .copy { font-size:11px; color:var(--text-primary); line-height:1.3; }
+  .sphere-demo .copy .eye { color:var(--fonio-blau); font-size:9px; text-transform:uppercase; letter-spacing:.04em; font-weight:500; margin-bottom:4px; }
+  .sphere-demo .copy .h { font-size:14px; font-weight:500; letter-spacing:-0.02em; }
+  .sphere-demo .sphere { position:relative; height:100%; }
+  .sphere-demo .sphere img { object-fit: contain; }
+
+  /* Wave demo — banner section */
+  .wave-demo .banner { position:absolute; inset:0; background:#fff; }
+  .wave-demo .banner img { position:absolute; left:0; right:0; bottom:-10%; width:100%; height:70%; object-fit:cover; }
+  .wave-demo .banner .center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 0 20px; }
+  .wave-demo .banner .h { font-size:14px; font-weight:500; letter-spacing:-0.02em; }
+  .wave-demo .banner .sub { font-size:10px; color:var(--text-secondary); margin-top:4px; }
+
+  /* Wobble demo — absolute left/right, bleeding off edges */
+  .wobble-demo { background:#fff; }
+  .wobble-demo .page { position:absolute; inset:0; overflow:hidden; }
+  .wobble-demo .wl, .wobble-demo .wr { position:absolute; width: 62%; top: 10%; opacity: .95; }
+  .wobble-demo .wl { left:-34%; }
+  .wobble-demo .wr { right:-34%; top: 28%; transform: scaleX(-1); }
+  .wobble-demo .body { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+  .wobble-demo .dummy { width:55%; height:55%; border:1px dashed var(--border-strong); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--text-muted); }
+</style>
+</head><body>
+  <div class="grid">
+
+    <!-- SPHERE -->
+    <div class="frame sphere-demo">
+      <div class="mini-hero">
+        <div class="copy">
+          <div class="eye">Hero</div>
+          <div class="h">Webdesign,<br>das funktioniert.</div>
+        </div>
+        <div class="sphere"><img src="../assets/Sphere.webp"></div>
+      </div>
+      <div class="tag">Sphere</div>
+      <div class="role">Hero only · product visualization, right side</div>
+    </div>
+
+    <!-- WAVE -->
+    <div class="frame wave-demo">
+      <div class="banner">
+        <img src="../assets/Wave_Transparent.avif">
+        <div class="center">
+          <div class="h">Bereit für ein neues Projekt?</div>
+          <div class="sub">Banner-Sektion mit Wave-Hintergrund.</div>
+        </div>
+      </div>
+      <div class="tag">Wave</div>
+      <div class="role">Banner sections · full-bleed, anchored to bottom</div>
+    </div>
+
+    <!-- WOBBLE -->
+    <div class="frame wobble-demo">
+      <div class="page">
+        <img class="wl" src="../assets/Wobble.webp">
+        <img class="wr" src="../assets/Wobble.webp">
+        <div class="body"><div class="dummy">Body content</div></div>
+      </div>
+      <div class="tag">Wobble</div>
+      <div class="role">Absolute left &amp; right · bleeds off viewport · hero + later sections</div>
+    </div>
+
+  </div>
+</body></html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Pricing Cards</title>
+<link rel="stylesheet" href="../../../colors_and_type.css">
+<style>
+  body { margin:0; padding:40px 24px; background:var(--bg-secondary); font-family: var(--font-sans); }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  .toggle { display:flex; justify-content:center; margin-bottom: 28px; }
+  .toggle-inner { display:inline-flex; background: var(--white); border: 1px solid var(--border); border-radius: 9999px; padding: 4px; }
+  .toggle button { border:0; background:transparent; font-family: var(--font-sans); font-size: 16px; font-weight: 500; color: var(--text-secondary); padding: 8px 16px; border-radius: 9999px; cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
+  .toggle button.active { background: var(--black); color: var(--white); }
+  .toggle .pill { font-size: 11px; font-weight: 500; background: var(--fonio-blau); color: var(--white); padding: 2px 6px; border-radius: 9999px; letter-spacing: .02em; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .plan { background: var(--white); border: 1px solid var(--border); border-radius: 15px; padding: 28px; position: relative; }
+  .plan.pop { border-color: var(--fonio-blau); }
+  .plan .pop-tag { position:absolute; top:20px; right:20px; font-size:10px; font-weight:500; color: var(--fonio-blau); background: var(--fonio-blau-soft); padding: 3px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: .04em; }
+  .plan h3 { font-size: 22px; font-weight: 500; margin: 0; }
+  .plan .sub { font-size: 16px; color: var(--text-secondary); margin-top: 4px; }
+  .plan .price { margin-top: 22px; display:flex; align-items: baseline; gap: 6px; }
+  .plan .price b { font-size: 36px; font-weight: 500; letter-spacing: -0.02em; }
+  .plan .price small { font-size: 16px; color: var(--text-secondary); }
+  .plan .price .starting { font-size: 16px; color: var(--text-secondary); margin-right: 4px; }
+  .plan .cta { margin-top: 20px; width: 100%; }
+  .plan .cta.alt { background: var(--fonio-blau); color: var(--white); }
+  .plan .cta-rule { height: 1px; background: var(--border); margin: 24px -28px 0; }
+  .plan h5 { font-size: 16px; font-weight: 500; color: var(--text-primary); margin: 20px 0 12px; text-transform: none; letter-spacing: 0; }
+  .item { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; color: var(--text-primary); padding: 5px 0; line-height: 1.45; }
+  .item.mute { color: var(--text-muted); }
+  .item svg { flex-shrink: 0; margin-top: 3px; }
+  .chip { display:inline-block; font-size:14px; color: var(--text-primary); background: var(--bg-secondary); border-radius: 6px; padding: 1px 6px; margin: 0 2px; }
+</style>
+</head><body>
+<div class="wrap">
+  <div class="toggle">
+    <div class="toggle-inner" id="toggle">
+      <button data-mode="annual">Annually <span class="pill">-15%</span></button>
+      <button data-mode="monthly" class="active">Monthly</button>
+    </div>
+  </div>
+  <div class="grid">
+
+    <div class="plan">
+      <h3>Solo</h3>
+      <div class="sub">Suitable for 1–20 calls/day</div>
+      <div class="price"><b data-price="solo">€99</b><small>/ month</small></div>
+      <button class="btn btn-secondary cta">Start Now</button>
+      <div class="cta-rule"></div>
+      <h5>Included</h5>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>1000 minutes <span style="color:var(--text-muted)">€0.15 per additional</span></div>
+      <div class="item mute"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A8A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>no parallel calls</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>1 phone no. <span style="color:var(--text-muted)">€7/mo per additional</span></div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>∞ Assistants</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>1 user</div>
+      <h5>Features</h5>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>20+ voices</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>25+ languages</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Access to onboarding academy</div>
+    </div>
+
+    <div class="plan pop">
+      <span class="pop-tag">Popular</span>
+      <h3>Team</h3>
+      <div class="sub">Suitable for 20–100 calls/day</div>
+      <div class="price"><b data-price="team">€299</b><small>/ month</small></div>
+      <button class="btn cta alt">Start Now</button>
+      <div class="cta-rule"></div>
+      <h5>Included</h5>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>3000 minutes <span style="color:var(--text-muted)">€0.12 per additional</span></div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>3 concurrent calls</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>3 phone no. <span style="color:var(--text-muted)">€5/mo per additional</span></div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>∞ Assistants</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>∞ Users</div>
+      <h5>Features</h5>
+      <div class="item">← Everything in <span class="chip">Solo</span></div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Connect own SIP</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Outbound calls</div>
+    </div>
+
+    <div class="plan">
+      <h3>Scale</h3>
+      <div class="sub">Suitable from 100 calls/day</div>
+      <div class="price"><span class="starting">starting</span><b data-price="scale">499 €</b><small>/ month</small></div>
+      <button class="btn btn-secondary cta">Configure custom plan</button>
+      <div class="cta-rule"></div>
+      <h5>Included</h5>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>From 5000 minutes</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>custom conc. calls</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>custom phone nos.</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>∞ Assistants</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>∞ Users</div>
+      <h5>Features</h5>
+      <div class="item">← Everything in <span class="chip">Team</span></div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Custom voice</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Zero Data Retention</div>
+      <div class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F0F16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Custom SLA</div>
+    </div>
+  </div>
+</div>
+<script>
+  const PRICES = {
+    monthly: { solo: '€99', team: '€299', scale: '499 €' },
+    // 15% off applied to monthly
+    annual:  { solo: '€84', team: '€254', scale: '424 €' },
+  };
+  const buttons = document.querySelectorAll('#toggle button');
+  buttons.forEach(btn => btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const mode = btn.dataset.mode === 'annual' ? 'annual' : 'monthly';
+    document.querySelectorAll('[data-price]').forEach(el => {
+      el.textContent = PRICES[mode][el.dataset.price];
+    });
+  }));
+</script>
+</body></html>

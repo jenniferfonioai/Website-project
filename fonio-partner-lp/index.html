@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Partner LP</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  a { color: inherit; }
+
+  .page {
+    overflow: hidden;
+    background: var(--bg-primary);
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+
+  .logo img {
+    height: 28px;
+    display: block;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+  }
+
+  .nav a:not(.btn) {
+    color: var(--text-secondary);
+    font-size: 15px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: color .15s ease;
+  }
+
+  .nav a:not(.btn):hover { color: var(--fonio-blau); }
+
+  .section {
+    padding: 96px 32px;
+    position: relative;
+  }
+
+  .section-soft { background: var(--bg-secondary); }
+
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .narrow {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 80px 32px 112px;
+    min-height: calc(100vh - 65px);
+    display: flex;
+    align-items: center;
+  }
+
+  .hero::after,
+  .cta-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 440px;
+    background: url("assets/Wave_Transparent.avif") center bottom / cover no-repeat;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 520px);
+    gap: 64px;
+    align-items: center;
+  }
+
+  .hero-copy {
+    max-width: 700px;
+  }
+
+  .eyebrow-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 6.4vw, 86px);
+    line-height: 1.02;
+  }
+
+  .lead {
+    color: var(--text-secondary);
+    font-size: 20px;
+    line-height: 1.55;
+    margin-top: 24px;
+    max-width: 650px;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 34px;
+  }
+
+  .hero-visual {
+    position: relative;
+    min-height: 420px;
+  }
+
+  .hero-visual img {
+    width: min(100%, 520px);
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hero-visual .wobble {
+    position: absolute;
+    width: 78%;
+    right: -38%;
+    top: -16%;
+    z-index: -1;
+  }
+
+  .section-head {
+    max-width: 760px;
+    margin-bottom: 48px;
+  }
+
+  .section-head.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .section-head h2 {
+    font-size: clamp(34px, 4vw, 56px);
+    margin-top: 14px;
+  }
+
+  .section-head p {
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .benefit-card,
+  .partner-card,
+  .note-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+  }
+
+  .benefit-card .number {
+    color: var(--fonio-blau);
+    font-weight: var(--fw-medium);
+    margin-bottom: 14px;
+  }
+
+  .benefit-card h3,
+  .partner-card h3 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .benefit-card p,
+  .partner-card p,
+  .note-card p {
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-top: 14px;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-primary);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 780px;
+  }
+
+  th,
+  td {
+    padding: 18px 16px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+  }
+
+  th:first-child,
+  td:first-child {
+    text-align: left;
+    color: var(--text-secondary);
+    width: 27%;
+  }
+
+  th {
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+  }
+
+  tr:last-child td { border-bottom: 0; }
+
+  .table-stack {
+    display: grid;
+    gap: 28px;
+  }
+
+  .table-label {
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .step {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  .step .number {
+    color: var(--fonio-blau);
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .step h3 {
+    font-size: 24px;
+  }
+
+  .step p {
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-top: 12px;
+  }
+
+  .trust {
+    padding: 42px 32px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-primary);
+  }
+
+  .trust-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    color: var(--text-secondary);
+  }
+
+  .trust strong {
+    color: var(--text-primary);
+    font-weight: var(--fw-medium);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    background: var(--white);
+  }
+
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .partner-card ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+
+  .partner-card li {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    padding-left: 22px;
+    position: relative;
+  }
+
+  .partner-card li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--fonio-blau);
+    position: absolute;
+    left: 0;
+    top: .7em;
+  }
+
+  .card-action {
+    margin-top: 28px;
+  }
+
+  .note-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .bubble {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 15;
+    max-width: 260px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .faq {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .faq details {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq summary {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: var(--fw-medium);
+  }
+
+  .faq summary::-webkit-details-marker { display: none; }
+
+  .faq summary::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid var(--text-secondary);
+    border-bottom: 1.5px solid var(--text-secondary);
+    transform: rotate(45deg);
+    transition: transform .2s ease;
+    flex: 0 0 auto;
+  }
+
+  .faq details[open] summary::after {
+    transform: rotate(225deg);
+  }
+
+  .faq .answer {
+    padding: 0 4px 22px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 780px;
+  }
+
+  .cta-section {
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 128px;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(34px, 4vw, 56px);
+  }
+
+  .cta-section p {
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 20px auto 0;
+    max-width: 720px;
+  }
+
+  .footer {
+    padding: 36px 32px;
+    border-top: 1px solid var(--border);
+    background: var(--white);
+  }
+
+  .footer-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .footer img {
+    height: 26px;
+    display: block;
+  }
+
+  .footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  @media (max-width: 980px) {
+    .nav a:not(.btn) { display: none; }
+    .hero {
+      min-height: 0;
+      padding-top: 64px;
+    }
+    .hero-grid,
+    .benefit-grid,
+    .steps,
+    .partner-grid,
+    .note-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-visual {
+      min-height: 0;
+    }
+    .hero-visual .wobble {
+      right: -22%;
+      top: -8%;
+      width: 64%;
+    }
+    .trust-inner {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .header-inner,
+    .section,
+    .hero,
+    .trust,
+    .footer {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .header-inner {
+      gap: 12px;
+    }
+    .logo img {
+      height: 24px;
+    }
+    .nav .btn {
+      height: 42px;
+      padding: 0 13px;
+      font-size: 14px;
+    }
+    .section {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+    .hero {
+      padding-top: 48px;
+      padding-bottom: 76px;
+    }
+    .hero h1 {
+      font-size: 44px;
+    }
+    .lead {
+      font-size: 18px;
+    }
+    .actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .btn {
+      width: 100%;
+    }
+    .bubble {
+      left: 20px;
+      right: 20px;
+      max-width: none;
+    }
+    .footer-inner {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#">
+        <img src="assets/logo.png" alt="fonio.ai">
+      </a>
+      <nav class="nav">
+        <a href="#so-funktionierts">So funktioniert's</a>
+        <a href="#provisionsstufen">Provisionsstufen</a>
+        <a href="#partner-typen">Referral oder Reseller</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="#partner-werden">Partner werden</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero" id="partner-werden">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow-row">
+            <span class="fonio-eyebrow-heading">fonio.ai Partnerprogramm</span>
+          </div>
+          <h1>Verdiene bis zu 35 % — ein Leben lang.</h1>
+          <p class="lead">Werde Partner des Marktführers für KI Telefonie und mach aus deinem Netzwerk wiederkehrende Einnahmen. Einfacher Einstieg, flexibel gestaltbar.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#partner-typen">Partner werden</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img class="wobble" src="assets/Wobble.webp" alt="">
+          <img src="assets/Sphere.webp" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="benefits">
+      <div class="container">
+        <div class="section-head">
+          <span class="fonio-eyebrow-heading">So funktioniert's</span>
+          <h2>Deine Vorteile als Partner</h2>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <div class="number">1</div>
+            <h3>📊 Stufenwechsel gelten für dein gesamtes Portfolio.</h3>
+            <p>Stufe gewechselt? Die neue Rate gilt für jeden Kunden — nicht nur für neue.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="number">2</div>
+            <h3>♾️ Kein Ablaufdatum.</h3>
+            <p>Solange deine Kunden zahlen, verdienst du mit. So einfach ist das.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="number">3</div>
+            <h3>🎓 Schulung halten, aktiv bleiben.</h3>
+            <p>Referral-Partner können eine optionale kostenlose Online-Schulung absolvieren. Reseller müssen diese Schulung innerhalb der ersten drei Monate abschließen.</p>
+          </article>
+        </div>
+        <div class="table-stack" style="margin-top: 36px;">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>🥉 Bronze</th>
+                  <th>🥈 Silver</th>
+                  <th>🥇 Gold</th>
+                  <th>💎 Platinum</th>
+                  <th>👑 Diamond</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Deine Rate</td>
+                  <td>15%</td>
+                  <td>20%</td>
+                  <td>25%</td>
+                  <td>30%</td>
+                  <td>35%</td>
+                </tr>
+                <tr>
+                  <td>Support Level</td>
+                  <td>Ticket</td>
+                  <td>Ticket</td>
+                  <td>Ticket</td>
+                  <td>Priority</td>
+                  <td>Priority</td>
+                </tr>
+                <tr>
+                  <td>Co-Branding</td>
+                  <td>✗</td>
+                  <td>✗</td>
+                  <td>✗</td>
+                  <td>✓</td>
+                  <td>✓</td>
+                </tr>
+                <tr>
+                  <td>Gemeinsames Marketing</td>
+                  <td>✗</td>
+                  <td>✗</td>
+                  <td>✗</td>
+                  <td>On request</td>
+                  <td>✓</td>
+                </tr>
+                <tr>
+                  <td>Dedizierter Partner Manager</td>
+                  <td>✗</td>
+                  <td>✗</td>
+                  <td>✗</td>
+                  <td>✗</td>
+                  <td>✓</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn btn-secondary" href="#partner-typen">Als Partner starten</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="so-funktionierts">
+      <div class="container">
+        <div class="section-head center">
+          <span class="fonio-eyebrow-heading">So funktioniert's</span>
+          <h2>In drei Schritten zum Verdienen</h2>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="number">1</div>
+            <h3>Anmelden</h3>
+            <p>Wähle zwischen Referral oder Reseller. Dauert 5 Minuten. Starte als Referral, du kannst jederzeit zu Reseller wechseln oder beides kombinieren.</p>
+          </article>
+          <article class="step">
+            <div class="number">2</div>
+            <h3>Kunden begeistern</h3>
+            <p>Nutze deinen Link, deinen Rabattcode oder das Reseller-Dashboard, um deinen ersten Kunden zu gewinnen.</p>
+          </article>
+          <article class="step">
+            <div class="number">3</div>
+            <h3>Bis zu 35 % verdienen</h3>
+            <p>Referrals erhalten Provision. Reseller kaufen mit Rabatt. Beide bis zu 35 % — und es wächst mit dir mit!</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="trust-inner">
+        <strong>Über 400+ Partner vertrauen bereits auf <a href="http://fonio.ai/">fonio.ai</a></strong>
+        <span class="pill">EU-Server · DSGVO-konform · EU AI Act-konform</span>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="provisionsstufen">
+      <div class="container">
+        <div class="section-head">
+          <span class="fonio-eyebrow-heading">Provisionsstufen</span>
+          <h2>Je mehr du wächst, desto mehr verdienst du</h2>
+          <p>Mehr Kunden, höhere Rate. Fünf Stufen von 15 % bis 35 %, automatisch auf jeden deiner Kunden angewendet.</p>
+          <p>♾ Lebenslang — nie ablaufend</p>
+        </div>
+        <div class="table-stack">
+          <div>
+            <p class="table-label">fonio übernimmt Abrechnung &amp; Support</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>🥉 Bronze</th>
+                    <th>🥈 Silver</th>
+                    <th>🥇 Gold</th>
+                    <th>💎 Platinum</th>
+                    <th>👑 Diamond</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Provisionsrate</td>
+                    <td>15%</td>
+                    <td>20%</td>
+                    <td>25%</td>
+                    <td>30%</td>
+                    <td>35%</td>
+                  </tr>
+                  <tr>
+                    <td>Freischaltung ab</td>
+                    <td>€0</td>
+                    <td>€5,000+</td>
+                    <td>€15,000+</td>
+                    <td>€50,000+</td>
+                    <td>€150,000+</td>
+                  </tr>
+                  <tr>
+                    <td>Verdienstpotenzial</td>
+                    <td>bis zu €999</td>
+                    <td>bis zu€3,749</td>
+                    <td>bis zu €14,999</td>
+                    <td>bis zu €52,499</td>
+                    <td>Unlimitiert</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <p class="table-label">Du stellst dem Kunden die Rechnung und betreust ihn vollumfänglich</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>🥈 Silver</th>
+                    <th>🥇 Gold</th>
+                    <th>💎 Platinum</th>
+                    <th>👑 Diamond</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Dein Einkaufsrabatt</td>
+                    <td>20%</td>
+                    <td>25%</td>
+                    <td>30%</td>
+                    <td>35%</td>
+                  </tr>
+                  <tr>
+                    <td>Freischaltung ab</td>
+                    <td>€0</td>
+                    <td>€10,000+</td>
+                    <td>€40,000+</td>
+                    <td>€130,000+</td>
+                  </tr>
+                  <tr>
+                    <td>Potenziell verdiente Provision (exkl. Aufschlag)</td>
+                    <td>bis zu €1,999</td>
+                    <td>bis zu€9,999</td>
+                    <td>bis zu €45,499</td>
+                    <td>Unlimitiert</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="#partner-typen">Jetzt starten</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="partner-typen">
+      <div class="container">
+        <div class="section-head center">
+          <span class="fonio-eyebrow-heading">Wähle deinen Weg</span>
+          <h2>Referral oder Reseller</h2>
+          <p>Unsicher? Starte mit Referral — jederzeit auf Reseller wechseln.</p>
+        </div>
+        <div class="partner-grid">
+          <article class="partner-card">
+            <h3>Referral Partner</h3>
+            <p>Du empfiehlst fonio, wir übernehmen Abrechnung, Support und Onboarding. Kein operativer Mehraufwand notwendig um sofort zu starten.</p>
+            <ul>
+              <li>15–35 % lebenslange Provision — kostenlose Teilnahme</li>
+              <li>Eigener Affiliate-Link und Rabattcode für Kunden</li>
+              <li>Verkaufe deine eigenen Leistungen parallel und verrechne diese separat</li>
+              <li>fonio empfehlen, Provision verdienen. Den Rest erledigen wir.</li>
+              <li>Perfekt für Berater, Agenturen und Integratoren, die wiederkehrende Einnahmen ohne operativen Aufwand möchten.</li>
+            </ul>
+            <div class="card-action">
+              <a class="btn btn-secondary" href="#partner-werden">Referral-Partner werden</a>
+            </div>
+          </article>
+          <article class="partner-card">
+            <h3>Reseller Partner</h3>
+            <p>Besitze die Kundenbeziehung. Kaufe fonio mit Rabatt, verkaufe zu deinem Preis und bündle es mit deinen Leistungen. Dein Rabatt ist die Untergrenze — deine Marge bestimmst du.</p>
+            <ul>
+              <li>20–35 % Rabatt — schnellere Progression als im Referral</li>
+              <li>Du stellst dem Kunden die Rechnung — du besitzt die Beziehung</li>
+              <li>Co-Branding möglich</li>
+              <li>Referral-Link inklusive — nutze beide Programme gleichzeitig</li>
+              <li>Perfekt für Managed Service Provider und IT-Systemintegratoren, die ihren Preis selbst bestimmen und die Rechnung selbst stellen wollen.</li>
+            </ul>
+            <div class="card-action">
+              <a class="btn btn-primary" href="#partner-werden">Reseller-Partner werden</a>
+            </div>
+          </article>
+        </div>
+        <div class="note-grid">
+          <article class="note-card">
+            <p><strong>Flexibel by Design: Heute Referral, morgen Reseller — oder beides zugleich.</strong> Wechsel  oder Mix &amp; Match. Wechseln ist immer kostenlos.</p>
+          </article>
+          <article class="note-card">
+            <p><strong>Passt keine der Optionen?</strong> Enterprise-Deal, individuelles Setup oder etwas, an das wir nicht gedacht haben? Lass uns sprechen.</p>
+            <div class="card-action">
+              <a class="btn btn-tertiary" href="#individuelle-partnerschaft">Jetzt Kontakt aufnehmen</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <a class="bubble" href="#partner-typen">Hilfe bei der Auswahl? Sprich mit unserer KI.</a>
+
+    <section class="section section-soft" id="faq">
+      <div class="container">
+        <div class="section-head center">
+          <span class="fonio-eyebrow-heading">FAQ</span>
+          <h2>Häufig gestellte Fragen</h2>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>Referral oder Reseller — was ist der Unterschied?</summary>
+            <div class="answer">Als Referral Partner übernimmt fonio die Abrechnung, Support und Onboarding mit dem Kunden und du erhältst Provision. Als Reseller kaufst du mit Rabatt ein, bestimmst deinen eigenen Preis und besitzt die Kundenbeziehung. Reseller starten direkt mit 20% nicht 15% wie im Referral Partner System und haben geringere Umsatzschwellen auf die nächsten Stufen.</div>
+          </details>
+          <details>
+            <summary>Ist die Teilnahme kostenlos?</summary>
+            <div class="answer">Ja. Referral ist komplett kostenlos, keine Schulung erforderlich. Auch die Reseller-Schulung ist kostenlos, du musst sie nur innerhalb von 3 Monaten abschließen.</div>
+          </details>
+          <details>
+            <summary>Können Reseller Stufen überspringen?</summary>
+            <div class="answer">Ja. Verpflichte dich zu €999/Monat für sofortiges Gold (25 %) oder lass uns alternativ zu anderen Möglichkeiten sprechen, wenn du noch höher einsteigen möchtest.</div>
+          </details>
+          <details>
+            <summary>Wie funktioniert die Schulung?</summary>
+            <div class="answer">Referral-Partner benötigen keine Schulung zum Starten. Reseller müssen innerhalb von 3 Monaten eine kostenlose Schulung absolvieren — Produktwissen, Markenrichtlinien und Support-Protokolle. Für Platin+ (30 %+) ist eine zusätzliche kostenpflichtige Zertifizierung erforderlich. Alles wird jährlich erneuert.</div>
+          </details>
+          <details>
+            <summary>Kann ich zwischen den Modellen wechseln?</summary>
+            <div class="answer">Ja. Absolviere die kostenlose Schulung und du bist Reseller. Deine Stufe und Rate werden übernommen. Reseller können außerdem Kunden für Deals empfehlen, die sie nicht selbst abrechnen möchten.</div>
+          </details>
+          <details>
+            <summary>Was, wenn keine Option passt?</summary>
+            <div class="answer">Hinterlass uns unten deine Kontaktdaten, und wir melden uns, um eine individuelle Vereinbarung zu besprechen. Enterprise-Deals, Co-Branding oder alles andere.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section" id="individuelle-partnerschaft">
+      <div class="container narrow">
+        <h2>Brauchst du eine individuelle Partnerschaft?</h2>
+        <p>Enterprise-Deals, Gebietsexklusivität oder etwas, an das wir noch nicht gedacht haben? Hinterlass deine Kontaktdaten und wir melden uns persönlich.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <img src="assets/logo.png" alt="fonio.ai">
+      <a href="#partner-werden">Partner werden</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

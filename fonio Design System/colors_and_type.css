@@ -1,0 +1,286 @@
+/* =========================================================
+   fonio • Colors & Type
+   Core design tokens — use via CSS vars or component classes.
+   ========================================================= */
+
+/* ---- Roboto (self-hosted variable font, weight + width axes) ---- */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-display: swap;
+  src: url('fonts/Roboto-VariableFont_wdth_wght.ttf') format('truetype-variations');
+}
+
+:root {
+  /* =========================
+     COLORS — brand
+     ========================= */
+  --fonio-blau: #585dfe;          /* brand primary */
+  --fonio-blau-hover: #4045d9;    /* pressed / darker */
+  --fonio-blau-soft: #eaebff;     /* soft tint surface */
+
+  /* =========================
+     COLORS — neutrals
+     ========================= */
+  --black: #0f0f16;               /* primary text & secondary button */
+  --white: #ffffff;               /* primary background */
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f8fc;        /* secondary surface */
+
+  --border: #E1E3F4;              /* primary border */
+  --border-strong: #c9cce5;
+
+  --text-primary: #0f0f16;
+  --text-secondary: #555b6e;
+  --text-muted: #a4a6b6;
+
+  /* =========================
+     COLORS — semantic
+     ========================= */
+  --success: #1fae6b;
+  --warning: #f5a524;
+  --danger:  #e5484d;
+  --info:    var(--fonio-blau);
+
+  /* =========================
+     TYPE — family
+     ========================= */
+  --font-sans: 'Roboto', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* =========================
+     TYPE — scale
+     base body = 16 / 400
+     headings = 500 weight
+     ========================= */
+  --fs-xs:   12px;
+  --fs-sm:   14px;
+  --fs-base: 16px;  /* body */
+  --fs-lg:   18px;
+  --fs-xl:   20px;
+  --fs-2xl:  24px;   /* h4 */
+  --fs-3xl:  30px;   /* h3 */
+  --fs-4xl:  38px;   /* h2 */
+  --fs-5xl:  52px;   /* h1 */
+  --fs-6xl:  72px;   /* display */
+
+  --lh-tight:  1.1;
+  --lh-snug:   1.25;
+  --lh-normal: 1.5;
+  --lh-loose:  1.7;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:  0.02em;
+
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* =========================
+     RADIUS
+     ========================= */
+  --radius-sm:     10px;  /* small radius */
+  --radius-md:     12px;  /* buttons, cards */
+  --radius-lg:     15px;  /* big media */
+  --radius-full: 9999px;
+
+  /* =========================
+     SHADOW
+     — "medium" is the canonical card shadow
+     ========================= */
+  --shadow-sm: 0 1px 2px rgba(15, 15, 22, 0.04), 0 1px 3px rgba(15, 15, 22, 0.04);
+  --shadow-md: 0 1px 2px rgba(15, 15, 22, 0.04), 0 4px 12px rgba(15, 15, 22, 0.05);
+  --shadow-lg: 0 10px 20px rgba(15, 15, 22, 0.07), 0 30px 60px rgba(15, 15, 22, 0.09);
+
+  /* =========================
+     SPACING (4-pt base)
+     ========================= */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-8:  32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;
+  --s-24: 96px;
+
+  /* =========================
+     LAYOUT
+     ========================= */
+  --container-max: 1240px;
+  --btn-height: 3rem;   /* 48px */
+  --btn-padding-x: 19px;
+}
+
+/* =========================================================
+   BASE ELEMENT STYLES
+   ========================================================= */
+html, body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+}
+
+h1 { font-size: var(--fs-5xl); }
+h2 { font-size: 40px; }
+h3 { font-size: 32px; }
+h4 { font-size: var(--fs-2xl); }
+h5 { font-size: var(--fs-xl); }
+h6 { font-size: var(--fs-lg); }
+
+p  { margin: 0; font-size: var(--fs-base); line-height: var(--lh-normal); color: var(--text-primary); }
+
+.fonio-display { font-size: var(--fs-6xl); font-weight: var(--fw-medium); line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); }
+/* Eyebrow — 12px, secondary text color.
+   Two variants:
+   - .fonio-eyebrow-heading  → lowercase, bordered pill (hugs text), sits above a section H2
+   - .fonio-eyebrow-label    → UPPERCASE, no border, small inline label */
+.fonio-eyebrow-heading,
+.fonio-eyebrow-label {
+  display: inline-block;
+  font-size: var(--fs-xs);       /* 12px */
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+.fonio-eyebrow-heading {
+  text-transform: none;          /* lowercase / as-typed */
+  letter-spacing: var(--tracking-normal);
+  border: 1px solid var(--border);
+  border-radius: 10px;           /* radius-sm */
+  padding: 3px 8px;              /* hugs the text */
+  width: auto;
+}
+.fonio-eyebrow-label {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  border: 0;
+  padding: 0;
+}
+.fonio-small   { font-size: var(--fs-sm); color: var(--text-secondary); }
+.fonio-muted   { color: var(--text-muted); }
+.fonio-mono    { font-family: var(--font-mono); font-size: var(--fs-sm); }
+
+/* =========================================================
+   BUTTONS
+   height 3rem, padding 0 19px, radius md
+   ========================================================= */
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--btn-height);
+  padding: 0 var(--btn-padding-x);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular); /* 400 */
+  line-height: 1;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: box-shadow .2s ease, border-color .15s ease, color .15s ease, transform .05s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+.btn:active { transform: translateY(1px); }
+
+/* Primary & secondary share a bottom-up white fade on hover */
+.btn-primary,
+.btn-secondary {
+  color: var(--white);
+}
+.btn-primary   { background: var(--fonio-blau); }
+.btn-secondary { background: var(--black); }
+
+.btn-primary::after,
+.btn-secondary::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(255,255,255,0.20), rgba(255,255,255,0));
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.btn-primary:hover::after,
+.btn-secondary:hover::after { opacity: 1; }
+.btn-primary:hover,
+.btn-secondary:hover { box-shadow: var(--shadow-md); }
+
+.btn-tertiary {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--border);
+}
+.btn-tertiary:hover {
+  color: var(--fonio-blau);
+  border-color: var(--fonio-blau);
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+.card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--s-6);
+}
+.card-elevated {
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--s-6);
+}
+
+/* =========================================================
+   FORM INPUTS
+   ========================================================= */
+.input {
+  width: 100%;
+  height: var(--btn-height);
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  color: var(--text-primary);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.input::placeholder { color: var(--text-muted); }
+.input:focus {
+  outline: none;
+  border-color: var(--fonio-blau);
+  box-shadow: 0 0 0 3px rgba(88, 93, 254, 0.18);
+}

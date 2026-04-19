@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Type — Body & Utility</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin:0; padding:22px 24px; background:#fff; }
+  .row { display:grid; gap:14px; }
+  .spec { display:grid; grid-template-columns: 1fr auto; align-items:baseline; gap:16px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+  .label { font-family: ui-monospace, Menlo, monospace; font-size:11px; color:var(--text-muted); white-space:nowrap; }
+</style>
+</head><body>
+  <div class="row">
+    <div class="spec"><p class="fonio-eyebrow-heading">eyebrow heading</p><span class="label">12/500 · bordered · radius-sm · lowercase</span></div>
+    <div class="spec"><p class="fonio-eyebrow-label">Eyebrow label</p><span class="label">12/500 · no border · uppercase</span></div>
+    <div class="spec"><p style="font-size:18px">Large body — used for intro paragraphs and lead-in copy across hero sections.</p><span class="label">Lead · 18/400</span></div>
+    <div class="spec"><p>Body copy — used for running text across the site. Line-height 1.5 for easy reading.</p><span class="label">Body · 16/400</span></div>
+    <div class="spec"><p class="fonio-small">Small / meta — captions, labels, footer notes.</p><span class="label">Small · 14/400</span></div>
+    <div class="spec"><p class="fonio-muted" style="font-size:12px">Muted caption text</p><span class="label">Caption · 12/400</span></div>
+  </div>
+</body></html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Cards Slider</title>
+<link rel="stylesheet" href="../../../colors_and_type.css">
+<style>
+  body { margin:0; padding:40px 24px; background: var(--white); font-family: var(--font-sans); }
+  .wrap { max-width: 1100px; margin: 0 auto; position: relative; padding: 0 56px; }
+  .arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 40px; height: 40px; border-radius: 9999px;
+    border: 1px solid var(--border); background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 2;
+  }
+  .arrow:hover { border-color: var(--text-primary); }
+  .arrow.l { left: 0; }
+  .arrow.r { right: 0; }
+  .arrow svg { stroke: var(--text-primary); }
+  .track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow .2s ease, transform .2s ease;
+  }
+  .card:hover {
+    box-shadow: 0 12px 32px -12px rgba(15, 15, 22, 0.18);
+    transform: translateY(-2px);
+  }
+  .viz {
+    height: 180px;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    /* placeholder image pattern */
+    background-image:
+      linear-gradient(45deg, rgba(15,15,22,.04) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(15,15,22,.04) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(15,15,22,.04) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(15,15,22,.04) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  }
+  .body { padding: 32px; }
+  .body h3 { font-size: 18px; font-weight: 500; margin: 0 0 8px; color: var(--text-primary); }
+  .body p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+  .body .more { color: var(--text-muted); }
+</style>
+</head><body>
+<div class="wrap">
+  <button class="arrow l" aria-label="Previous">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+  </button>
+
+  <div class="track">
+
+    <div class="card">
+      <div class="viz">Image placeholder</div>
+      <div class="body">
+        <h3>Answers calls</h3>
+        <p>The AI Phone Assistant for doctor's offices can answer patient ca<span class="more">… more</span></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="viz">Image placeholder</div>
+      <div class="body">
+        <h3>Manages appointments</h3>
+        <p>With intuitive calendar integration, the AI Phone Assistant reliab<span class="more">… more</span></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="viz">Image placeholder</div>
+      <div class="body">
+        <h3>Identifies Existing Patients</h3>
+        <p>With our AI Phone Assistant for medical practices, you can c<span class="more">… more</span></p>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="arrow r" aria-label="Next">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+</div>
+</body></html>

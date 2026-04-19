@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Colors — Brand</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin:0; padding:20px; background:#fff; }
+  .row { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
+  .swatch { border-radius: 12px; padding:14px; border:1px solid var(--border); display:flex; flex-direction:column; justify-content:space-between; min-height:110px; }
+  .swatch .chip { width:40px; height:40px; border-radius: 10px; border:1px solid rgba(0,0,0,.06); }
+  .swatch .name { font-size:13px; font-weight:500; color:var(--text-primary); margin-top:10px; }
+  .swatch .hex  { font-family: ui-monospace, Menlo, monospace; font-size:12px; color:var(--text-secondary); }
+  .swatch .role { font-size:11px; color:var(--text-muted); margin-top:2px; }
+</style>
+</head><body>
+  <div class="row">
+    <div class="swatch"><div class="chip" style="background:#585DFE"></div>
+      <div><div class="name">fonio blau</div><div class="hex">#585DFE</div><div class="role">Brand primary</div></div>
+    </div>
+    <div class="swatch"><div class="chip" style="background:#0F0F16"></div>
+      <div><div class="name">black</div><div class="hex">#0F0F16</div><div class="role">Text · secondary btn · tertiary bg</div></div>
+    </div>
+    <div class="swatch"><div class="chip" style="background:#FFFFFF; border:1px solid var(--border)"></div>
+      <div><div class="name">white</div><div class="hex">#FFFFFF</div><div class="role">Primary background</div></div>
+    </div>
+  </div>
+</body></html>

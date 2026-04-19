@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Colors — Semantic</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin:0; padding:20px; background:#fff; }
+  .row { display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; }
+  .swatch { border-radius: 12px; padding:12px; border:1px solid var(--border); min-height:120px; display:flex; flex-direction:column; justify-content:space-between; }
+  .chip { width:36px; height:36px; border-radius:10px; }
+  .name { font-size:12px; font-weight:500; color:var(--text-primary); margin-top:10px; }
+  .hex  { font-family: ui-monospace, Menlo, monospace; font-size:11px; color:var(--text-secondary); }
+  .role { font-size:10px; color:var(--text-muted); margin-top:2px; }
+</style>
+</head><body>
+  <div class="row">
+    <div class="swatch"><div class="chip" style="background:#585DFE"></div>
+      <div><div class="name">info</div><div class="hex">#585DFE</div><div class="role">fonio blau</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1FAE6B"></div>
+      <div><div class="name">success</div><div class="hex">#1FAE6B</div><div class="role">Confirm, saved</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F5A524"></div>
+      <div><div class="name">warning</div><div class="hex">#F5A524</div><div class="role">Caution</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#E5484D"></div>
+      <div><div class="name">danger</div><div class="hex">#E5484D</div><div class="role">Error, destructive</div></div></div>
+  </div>
+</body></html>
