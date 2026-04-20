@@ -209,6 +209,7 @@ p  { margin: 0; font-size: var(--fs-base); line-height: var(--lh-normal); color:
   transition: box-shadow .2s ease, border-color .15s ease, color .15s ease, transform .05s ease;
   white-space: nowrap;
   user-select: none;
+  text-decoration: none;
 }
 .btn:active { transform: translateY(1px); }
 
